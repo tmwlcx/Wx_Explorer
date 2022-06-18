@@ -1,0 +1,43 @@
+name,id
+Annual Agricultural,ANNAGR
+Annual Degree Days,ANNDD
+Annual Precipitation,ANNPRCP
+Annual Temperature,ANNTEMP
+Autumn Agricultural,AUAGR
+Autumn Degree Days,AUDD
+Autumn Precipitation,AUPRCP
+Autumn Temperature,AUTEMP
+Computed,COMP
+Computed Agricultural,COMPAGR
+Degree Days,DD
+Dual-Pol Moments,DUALPOLMOMENT
+Echo Tops,ECHOTOP
+Evaporation,EVAP
+Hydrometeor Type,HYDROMETEOR
+Land,LAND
+Miscellany,MISC
+Other,OTHER
+Overlay,OVERLAY
+Precipitation,PRCP
+Pressure,PRES
+Reflectivity,REFLECTIVITY
+Sky cover & clouds,SKY
+Spring Agricultural,SPAGR
+Spring Degree Days,SPDD
+Spring Precipitation,SPPRCP
+Spring Temperature,SPTEMP
+Summer Agricultural,SUAGR
+Summer Degree Days,SUDD
+Sunshine,SUN
+Summer Precipitation,SUPRCP
+Summer Temperature,SUTEMP
+Air Temperature,TEMP
+Velocity,VELOCITY
+Vertical Integrated Liquid,VERTINTLIQUID
+Water,WATER
+Winter Agricultural,WIAGR
+Winter Degree Days,WIDD
+Wind,WIND
+Winter Precipitation,WIPRCP
+Winter Temperature,WITEMP
+Weather Type,WXTYPE
