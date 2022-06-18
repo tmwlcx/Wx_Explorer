@@ -9,18 +9,19 @@ import requests
 
 
 class NOAAData(object):
-    def __init__(self, token):
+    def __init__(self, token, verbose=True):
         # NOAA API Endpoint
         self.url = 'https://www.ncdc.noaa.gov/cdo-web/api/v2/'
         self.h = dict(token=token)
-        # self.p = None
+        self.verbose = verbose
 
     def poll_api(self, req_type, payload, limit=1000):
         # Initiate http request - kwargs are constructed into a dict and passed as optional parameters
         # Ex (limit=100, sortorder='desc', startdate='1970-10-03', etc)
         payload['limit']= limit
-        r = requests.get(self.url + req_type, headers=self.h, params=payload)  
-        print(f"fetching {r.request.url}")
+        r = requests.get(self.url + req_type, headers=self.h, params=payload)
+        if self.verbose:
+            print(f"fetching {r.request.url}")
         # print(f"with headers {r.request.headers}")      
         if r.status_code != 200:  # Handle erroneous requests
             print("Error: " + str(r.status_code))
@@ -29,8 +30,9 @@ class NOAAData(object):
             r = r.json()
             # print(r)
             # print(r.keys())
-            print(f"Metadata for {req_type}: \n {r['metadata']}")
             if 'metadata' in r.keys():
+                if self.verbose:
+                    print(f"Metadata for {req_type}: \n {r['metadata']}")
                 _offset = r['metadata']['resultset']['offset']
                 _count = r['metadata']['resultset']['count']
                 while _offset + limit <= _count:
@@ -49,7 +51,7 @@ class NOAAData(object):
     # http://www.ncdc.noaa.gov/cdo-web/webservices/v2#datasets
     def datasets(self, **kwargs):
         req_type = 'datasets'
-        return self.poll_api(req_type, kwargs)
+        return self.poll_api(req_type, verbose, kwargs)
 
     # Fetch data categories
     # http://www.ncdc.noaa.gov/cdo-web/webservices/v2#dataCategories
