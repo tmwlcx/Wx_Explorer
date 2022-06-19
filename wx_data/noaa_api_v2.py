@@ -51,7 +51,7 @@ class NOAAData(object):
     # http://www.ncdc.noaa.gov/cdo-web/webservices/v2#datasets
     def datasets(self, **kwargs):
         req_type = 'datasets'
-        return self.poll_api(req_type, verbose, kwargs)
+        return self.poll_api(req_type, kwargs)
 
     # Fetch data categories
     # http://www.ncdc.noaa.gov/cdo-web/webservices/v2#dataCategories
